@@ -13,8 +13,8 @@ async function validateActionId(req, res, next){
 }
 
 async function validateAction(req, res, next) {
-    const {project_id, description, notes} = req.body
-    if (project_id && description && notes && description.trim().length && notes.trim().length && typeof project_id === "number" && typeof description === "string" && typeof notes === "string") {
+    const {project_id, description, notes, completed} = req.body
+    if (project_id && description && notes && description.trim().length && notes.trim().length && typeof project_id === "number" && typeof description === "string" && typeof notes === "string" && typeof completed === "boolean") {
         next()
     } else {
         next({status:400, message: "Action project_id, notes, and description required"})

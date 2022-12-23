@@ -58,7 +58,6 @@ projectsRouter.delete("/:id", validateProjectId, async (req, res, next)=>{
     const {id} = req.params
     const project = await Projects.remove(id)
     try {
-        console.log(project)
         res.status(200).json(project)
     }
     catch(error) {
